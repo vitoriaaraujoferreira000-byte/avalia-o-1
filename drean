@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Atividade01 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double[] notas = new double[8];
+
+        // Entrada das 8 notas
+        for (int i = 0; i < 8; i++) {
+            System.out.print("Digite a nota " + (i + 1) + ": ");
+            notas[i] = sc.nextDouble();
+        }
+
+        // Cálculo das médias bimestrais
+        double[] mediasBimestrais = new double[4];
+        for (int i = 0; i < 4; i++) {
+            mediasBimestrais[i] = (notas[i * 2] + notas[i * 2 + 1]) / 2;
+        }
+
+        // Cálculo das médias semestrais
+        double semestre1 = (mediasBimestrais[0] + mediasBimestrais[1]) / 2;
+        double semestre2 = (mediasBimestrais[2] + mediasBimestrais[3]) / 2;
+
+        // Cálculo da média final
+        double mediaFinal = (semestre1 + semestre2) / 2;
+
+        // Saída formatada
+        System.out.println("\n--- Resultados ---");
+        System.out.printf("1º Bimestre: %.1f%n", mediasBimestrais[0]);
+        System.out.printf("2º Bimestre: %.1f%n", mediasBimestrais[1]);
+        System.out.printf("1º Semestre: %.1f%n", semestre1);
+        System.out.println("-------------------------");
+        System.out.printf("3º Bimestre: %.1f%n", mediasBimestrais[2]);
+        System.out.printf("4º Bimestre: %.1f%n", mediasBimestrais[3]);
+        System.out.printf("2º Semestre: %.1f%n", semestre2);
+        System.out.println("-------------------------");
+        System.out.printf("Média Final: %.1f%n", mediaFinal);
+
+        sc.close();
+    }
+}
